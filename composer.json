@@ -1,0 +1,15 @@
+{
+    "name": "glauco/mvc",
+    "description": "Projeto simples de CRUD com o MVC",
+    "type": "project",
+    "authors": [
+        {
+            "name": "glauconeto",
+            "email": "neto.glauquinho@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "twig/twig": "3.x-dev"
+    }
+}
