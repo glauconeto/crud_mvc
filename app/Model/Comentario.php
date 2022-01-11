@@ -2,6 +2,9 @@
 
 class Comentario
 {
+    /**
+     * Método que seleciona todas os comentários de acordo com o ID da postagem
+     */
     public static function selectComents($idPost)
     {
         $con = Connection::getConn();

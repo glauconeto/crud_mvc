@@ -2,6 +2,10 @@
 
 class HomeController
 {
+    /**
+     * Página de home, responsável por exibir todas as publicações em uma 
+     * página principal
+     */
     public function index()
     {
         try {

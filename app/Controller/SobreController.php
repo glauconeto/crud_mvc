@@ -2,6 +2,9 @@
 
 class SobreController
 {
+    /**
+     * Página simples de sobre, apenas para exibir uma mensagem não oficial
+     */
     public function index()
     {
         $loader = new \Twig\Loader\FilesystemLoader('app/View');

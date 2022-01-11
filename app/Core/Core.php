@@ -1,7 +1,11 @@
 <?php
 
 class Core 
-{ 
+{
+    /**
+     * Cérebro do projeto todo, responsável por comandar tudo que passa para
+     * as controllers e views
+     */
     public function start($urlGet) 
     {
         if (isset($urlGet['metodo'])) {

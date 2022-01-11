@@ -3,10 +3,23 @@
 <a href="?pagina=admin&metodo=create">Criar publicação</a>
 <hr>
 <table>
-    <tr>
-        <th>ID</th>
-        <th>TÍTULO</th>
-        <th>ALTERAÇÃO</th>
-        <th>DELEÇÃO</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TÍTULO</th>
+            <th>ALTERAÇÃO</th>
+            <th>DELEÇÃO</th>
+        </tr>
+    </thead>
+    
+    {% for postagem in postagens  %}
+    <tbody>
+        <tr>
+            <th>{{postagem.id}}</th>
+            <th>{{postagem.titulo}}</th>
+            <th>ALTERAÇÃO</th>
+            <th><a href="?pagina=admin&metodo=update&id={{postagem.id}}">DELEÇÃO</a></th>
+        </tr>
+    </tbody>
+    {% endfor %}
 </table>

@@ -87,14 +87,28 @@ article p.message-coment {
 }
 
 table {
-    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+  thead {
+    background-color: #1c87c9;
+    color: #ffffff;
 }
 
 th {
-    border: 1px solid gray;
-    padding: 10px;
+    text-align: center;
+    height: 50px;
 }
 
-table tr th {
-    padding-right: 7px;
+tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+  tbody tr:nth-child(even) {
+    background: #f4f4f4;
 }

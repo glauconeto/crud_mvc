@@ -2,6 +2,10 @@
 
 class PostController
 {
+    /**
+     * Página que exibe a postagem em uma página separada, junto com os
+     * comentários
+     */
     public function index($params)
     {
         try {
