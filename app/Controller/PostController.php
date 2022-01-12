@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Controller;
+
+use App\Model\Postagem;
+use App\Model\Comentario;
+
 class PostController
 {
     /**
@@ -41,7 +46,7 @@ class PostController
             Comentario::inserir($_POST);
 
             header('Location: ?pagina=post&id='.$_POST['id']);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo '<script>alert("'.$e->getMessage().'");</script>';
             echo '<script>location.href="?pagina=post&id='.$_POST['id'].'"</script>';
         }

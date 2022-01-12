@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Model;
+
+use App\Lib\Database\Connection;
+
 class Comentario
 {
     /**
@@ -13,12 +17,12 @@ class Comentario
 
         $sql = 'SELECT * FROM comentario WHERE id_postagem = :id';
         $sql = $con->prepare($sql);
-        $sql->bindValue(':id', $idPost, PDO::PARAM_INT);
+        $sql->bindValue(':id', $idPost, \PDO::PARAM_INT);
         $sql->execute();
 
         $resultado = array();
 
-        while ($row = $sql->fetchObject('Comentario')) {
+        while ($row = $sql->fetchObject(self::class)) {
             $resultado[] = $row;
         }
 
@@ -40,6 +44,6 @@ class Comentario
             return true;
         }
 
-        throw new Exception("Falha na inserção");
+        throw new \Exception("Falha na inserção");
     }
 }

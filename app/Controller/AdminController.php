@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Controller;
+
+use App\Model\Postagem;
+
 class AdminController
 {
     /**
@@ -46,7 +50,7 @@ class AdminController
 
             echo '<script>alert("Publicação inserida com sucesso!")</script>';
             echo '<script>location.href="?pagina=admin&metodo=index"</script>';
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo '<script>alert("'. $e->getMessage(). '")</script>';
             echo '<script>location.href="?pagina=admin&metodo=create"</script>';
         }
@@ -82,7 +86,7 @@ class AdminController
 
             echo '<script>alert("Publicação alterada com sucesso!")</script>';
             echo '<script>location.href="?pagina=admin&metodo=index"</script>';
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo '<script>alert("'. $e->getMessage(). '")</script>';
             echo '<script>location.href="?pagina=admin&metodo=change&id='. $_POST['id']. '"</script>';
         }
@@ -95,7 +99,7 @@ class AdminController
 
             echo '<script>alert("Publicação deletada com sucesso!")</script>';
             echo '<script>location.href="?pagina=admin&metodo=index"</script>';
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo '<script>alert("'. $e->getMessage(). '")</script>';
             echo '<script>location.href="?pagina=admin&metodo=index"</script>';
         }

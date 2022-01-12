@@ -2,6 +2,11 @@
     "name": "glauco/mvc",
     "description": "Projeto simples de CRUD com o MVC",
     "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/"
+        }
+    },
     "authors": [
         {
             "name": "glauconeto",

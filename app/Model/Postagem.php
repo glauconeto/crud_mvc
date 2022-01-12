@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Model;
+
+use App\Lib\Database\Connection;
+use App\Model\Comentario;
+
 /**
  * Classe Model da tabela postagem do banco de dados, responsável 
  * pelas ações com o banco de dados
@@ -19,12 +24,12 @@ class Postagem
 
         $resultado = array();
 
-        while ($row = $sql->fetchObject('Postagem')) {
+        while ($row = $sql->fetchObject(self::class)) {
             $resultado[] = $row;
         }
 
         if (!$resultado) {
-            throw new Exception("Não foi encontrado nenhum registro no banco");
+            throw new \Exception("Não foi encontrado nenhum registro no banco");
         }
 
         return $resultado;
@@ -41,13 +46,13 @@ class Postagem
 
         $sql = 'SELECT * FROM postagem WHERE id = :id';
         $sql = $con->prepare($sql);
-        $sql->bindValue(':id', $id, PDO::PARAM_INT);
+        $sql->bindValue(':id', $id, \PDO::PARAM_INT);
         $sql->execute();
 
-        $resultado = $sql->fetchObject('Postagem');
+        $resultado = $sql->fetchObject(self::class);
 
         if (!$resultado) {
-            throw new Exception("Não foi encontrado nenhum registro no banco");
+            throw new \Exception("Não foi encontrado nenhum registro no banco");
         } else {
             $resultado->comentarios = Comentario::selectComents($resultado->id);
         }
@@ -63,7 +68,7 @@ class Postagem
     public static function insert($dadosPost)
     {
         if (empty($dadosPost['titulo']) OR empty($dadosPost['conteudo'])) {
-            throw new Exception("Preencha todos os campos");
+            throw new \Exception("Preencha todos os campos");
 
             return false;
         }
@@ -76,7 +81,7 @@ class Postagem
         $res = $sql->execute();
 
         if ($res == 0) {
-            throw new Exception("Falha ao inserir publicação");
+            throw new \Exception("Falha ao inserir publicação");
 
             return false;
         }
@@ -102,7 +107,7 @@ class Postagem
         $resultado = $sql->execute();
 
         if ($resultado == 0) {
-            throw new Exception("Falha ao alterar publicação");
+            throw new \Exception("Falha ao alterar publicação");
 
             return false;
         }
@@ -121,7 +126,7 @@ class Postagem
         $resultado = $sql->execute();
 
         if ($resultado == 0) {
-            throw new Exception("Falha ao alterar publicação");
+            throw new \Exception("Falha ao alterar publicação");
 
             return false;
         }

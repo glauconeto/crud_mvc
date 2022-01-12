@@ -1,9 +1,9 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once 'autoload.php';
+// require_once 'autoload.php';
 
-// use App\Core\Core;
+use App\Core\Core;
 
 $template = file_get_contents('app/Template/estrutura.html');
 ob_start();
