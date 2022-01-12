@@ -24,7 +24,7 @@ class Postagem
         }
 
         if (!$resultado) {
-            throw new \Exception("Não foi encontrado nenhum registro no banco");
+            throw new Exception("Não foi encontrado nenhum registro no banco");
         }
 
         return $resultado;
@@ -47,7 +47,7 @@ class Postagem
         $resultado = $sql->fetchObject('Postagem');
 
         if (!$resultado) {
-            throw new \Exception("Não foi encontrado nenhum registro no banco");
+            throw new Exception("Não foi encontrado nenhum registro no banco");
         } else {
             $resultado->comentarios = Comentario::selectComents($resultado->id);
         }
