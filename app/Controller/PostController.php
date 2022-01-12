@@ -5,6 +5,8 @@ class PostController
     /**
      * Página que exibe a postagem em uma página separada, junto com os
      * comentários
+     * @var array $params
+     * @return object $conteudo
      */
     public function index($params)
     {

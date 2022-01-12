@@ -4,6 +4,8 @@ class Comentario
 {
     /**
      * Método que seleciona todas os comentários de acordo com o ID da postagem
+     * @var number $idPost
+     * @return array $resultado
      */
     public static function selectComents($idPost)
     {

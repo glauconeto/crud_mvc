@@ -1,9 +1,13 @@
 <?php
 
+/**
+ * Classe Model da tabela postagem do banco de dados, responsável 
+ * pelas ações com o banco de dados
+ */
 class Postagem
 {
     /**
-     * Método que seleciona todas as postagens da tabela
+     * Método para selecionar todas as postagens da tabela
      */
     public static function selectAll()
     {
@@ -28,6 +32,8 @@ class Postagem
 
     /**
      * Método que seleciona apenas uma página de acordo com o ID
+     * @var number $id
+     * @return object $resultado
      */
     public static function selectID($id)
     {
@@ -49,6 +55,11 @@ class Postagem
         return $resultado;
     }
 
+    /**
+     * Insere uma nova postagem no banco de dados
+     * @var string $dadosPost
+     * @return boolean
+     */
     public static function insert($dadosPost)
     {
         if (empty($dadosPost['titulo']) OR empty($dadosPost['conteudo'])) {
@@ -59,29 +70,62 @@ class Postagem
 
         $con = Connection::getConn();
 
-        $sql = 'INSERT INTO postagem (titulo, conteudo) VALUES (:tit, :cont)';
-        $sql = $con->prepare($sql);
+        $sql = $con->prepare('INSERT INTO postagem (titulo, conteudo) VALUES (:tit, :cont)');
         $sql->bindValue(':tit', $dadosPost['titulo']);
         $sql->bindValue(':cont', $dadosPost['conteudo']);
         $res = $sql->execute();
 
         if ($res == 0) {
             throw new Exception("Falha ao inserir publicação");
-        
+
             return false;
         }
 
         return true;
     }
 
-    public static function update($dadosPost)
+    /**
+     * Atualiza um registro de uma postagem no banco de dados
+     * @var string $params
+     * @return boolean
+     */
+    public static function update($params)
     {
         $con = Connection::getConn();
-        
-        $sql = 'UPDATE postagem SET titulo = :tit, conteudo = :cont
-        WHERE id = :id';
+
+        $sql = $con->prepare('UPDATE postagem SET titulo = :tit, conteudo = :cont
+        WHERE id = :id');
+        $sql->bindValue(':tit', $params['titulo'], );
+        $sql->bindValue(':cont', $params['conteudo']);
+        $sql->bindValue(':id', $params['id']);
+
+        $resultado = $sql->execute();
+
+        if ($resultado == 0) {
+            throw new Exception("Falha ao alterar publicação");
+
+            return false;
+        }
+
+        return true;
+    }
+
+    public static function delete($id)
+    {
+        $con = Connection::getConn();
+
+        $sql = 'DELETE FROM postagem WHERE id = :id';
         $sql = $con->prepare($sql);
-        $sql->vindValue(':tit', $dadosPost['titulo']);
-        $sql->vindValue(':cont', $dadosPost['conteudo']);
+        $sql->bindValue(':id', $id);
+
+        $resultado = $sql->execute();
+
+        if ($resultado == 0) {
+            throw new Exception("Falha ao alterar publicação");
+
+            return false;
+        }
+
+        return true;
     }
 }

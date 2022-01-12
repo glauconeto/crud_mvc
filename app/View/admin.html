@@ -17,8 +17,8 @@
         <tr>
             <th>{{postagem.id}}</th>
             <th>{{postagem.titulo}}</th>
-            <th>ALTERAÇÃO</th>
-            <th><a href="?pagina=admin&metodo=update&id={{postagem.id}}">DELEÇÃO</a></th>
+            <th><a href="?pagina=admin&metodo=change&id={{postagem.id}}">ALTERAÇÃO</a></th>
+            <th><a href="?pagina=admin&metodo=delete&id={{postagem.id}}">DELEÇÃO</a></th>
         </tr>
     </tbody>
     {% endfor %}

@@ -4,6 +4,7 @@ class SobreController
 {
     /**
      * Página simples de sobre, apenas para exibir uma mensagem não oficial
+     * @return string $conteudo
      */
     public function index()
     {

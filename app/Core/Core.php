@@ -5,6 +5,8 @@ class Core
     /**
      * Cérebro do projeto todo, responsável por comandar tudo que passa para
      * as controllers e views
+     * @var string $urlGet
+     * @return function call_user_func_array
      */
     public function start($urlGet) 
     {
