@@ -9,6 +9,6 @@ class ErroController
      */
     public function index()
     {
-        echo 'página de erro';
+        echo 'PÁGINA DE ERRO';
     }
 }

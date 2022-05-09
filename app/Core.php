@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core;
+namespace App;
 
 use App\Controller\ErroController;
 use App\Controller\HomeController;
@@ -28,7 +28,7 @@ class Core
         } 
 
         if (!class_exists($controller)) { 
-            $controller = ErroController::class; 
+            $controller = ErroController::class;
         }
 
         if (isset($urlGet['id']) && ($urlGet['id'] != null)) {
