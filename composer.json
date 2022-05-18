@@ -13,7 +13,7 @@
             "email": "glauco.neto@outlook.com"
         }
     ],
-    "minimum-stability": "dev",
+    minimum-stability": "dev",
     "require": {
         "twig/twig": "3.x-dev"
     }
