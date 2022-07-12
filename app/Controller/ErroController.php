@@ -9,6 +9,6 @@ class ErroController
      */
     public function index()
     {
-        echo 'PÁGINA DE ERRO';
+        echo 'Esta é uma página inexistente, por favor tente acessar novamente.';
     }
 }

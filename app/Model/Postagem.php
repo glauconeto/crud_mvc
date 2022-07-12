@@ -4,7 +4,6 @@ namespace App\Model;
 
 use App\Lib\Database\Connection;
 use App\Model\Comentario;
-use Core;
 
 /**
  * Classe Model da tabela postagem do banco de dados, responsável 

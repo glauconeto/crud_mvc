@@ -22,7 +22,7 @@ class Core
         }
         
         if (isset($urlGet['pagina'])) {
-            $controller = ucfirst($urlGet['pagina'] . 'Controller');
+            $controller = 'App\Controller\\' . ucfirst($urlGet['pagina'] . 'Controller');
         } else { 
             $controller = HomeController::class; 
         } 
